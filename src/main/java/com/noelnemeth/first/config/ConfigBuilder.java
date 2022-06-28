@@ -1,6 +1,6 @@
-package com.noelnemeth.first;
+package com.noelnemeth.first.config;
 
-class ConfigBuilder {
+public class ConfigBuilder {
     private int value;
 
     public ConfigBuilder value(int value) {

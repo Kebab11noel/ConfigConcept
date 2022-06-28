@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.noelnemeth.first.config.Config;
 
 public class Main {
     public static void main(String[] args) throws JsonProcessingException {
@@ -16,10 +17,7 @@ public class Main {
         final String serialized = ymlMapper.writeValueAsString(configInitial);
         System.out.println(serialized);
 
-        record Meta(int version) {}
-
-        final int version = ymlMapper.readValue(serialized, Meta.class).version;
-        final Config configFinal = Config.toLatest(version, ymlMapper.readValue(serialized, Config.classOf(version)));
+        final Config configFinal = Config.load(serialized, ymlMapper::readValue);
         System.out.printf("Final value: %s", configFinal.foo().value());
     }
 }

@@ -1,6 +1,6 @@
-package com.noelnemeth.second;
+package com.noelnemeth.second.config;
 
-public record ConfigV1(int version, Bar bar) implements Config {
+record ConfigV1(int version, Bar bar) implements Config {
     public ConfigV1() {
         this(1, new Bar());
     }

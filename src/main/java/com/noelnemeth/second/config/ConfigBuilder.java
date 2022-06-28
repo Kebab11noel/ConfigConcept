@@ -1,4 +1,4 @@
-package com.noelnemeth.second;
+package com.noelnemeth.second.config;
 
 class ConfigBuilder {
     private int value;

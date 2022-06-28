@@ -1,6 +1,6 @@
-package com.noelnemeth.first;
+package com.noelnemeth.first.config;
 
-public record ConfigV0(int version, Foo foo, Bar bar) implements Config {
+record ConfigV0(int version, Foo foo, Bar bar) implements Config {
     @Override
     public int version() {
         return 0;
